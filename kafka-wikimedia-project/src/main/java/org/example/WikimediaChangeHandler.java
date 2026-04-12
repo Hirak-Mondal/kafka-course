@@ -12,7 +12,7 @@ public class WikimediaChangeHandler implements EventHandler {
 
     private KafkaProducer<String, String> producer;
     private String topic;
-    private final Logger log = LoggerFactory.getLogger(WikimediaChangeHandler.class);
+    private final Logger log = LoggerFactory.getLogger(WikimediaChangeHandler.class.getSimpleName());
     public WikimediaChangeHandler(KafkaProducer<String, String> producer, String topic) {
         this.producer = producer;
         this.topic = topic;

@@ -1,0 +1,39 @@
+kafka commands:
+windows starting issue:
+1. bin/kafka-storage.sh random-uuid
+2. bin/kafka-storage.sh format -t CKBhv9PFSAqxOOccuxB_Rg  -c config/server.properties --standalone
+3. sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+4. sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+bin/kafka-storage.sh format -t 1rTYJ9LqRTW3dt6wQX1yTA -c config/kraft/server.properties
+
+to see all the topics:
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+start kafka:
+bin/kafka-server-start.sh config/server.properties
+
+create topic:
+bin/kafka-topics.sh --create --topic demo_java --bootstrap-server localhost:9092
+bin/kafka-topics.sh --create --topic demo_java --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
+delete topic:
+bin/kafka-topics.sh --delete --topic demo_java --bootstrap-server localhost:9092
+
+consuner:
+bin/kafka-console-consumer.sh --topic demo_java --bootstrap-server 172.20.85.172:9092  --from-beginning
+bin/kafka-console-consumer.sh --topic demo_java --bootstrap-server localhost:9092  --from-beginning
+
+
+get offset:
+bin/kafka-get-offsets.sh --bootstrap-server localhost:9092 --topic demo_java
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group java_application
+extra:
+hostname -I
+
+Unable to connect to kafka node: run below two commands
+    sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+    sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+
+
