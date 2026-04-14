@@ -38,7 +38,7 @@ import java.net.URI;
 
 public class OpenSearchConsumer {
     public static RestHighLevelClient createOpenSearchClient() {
-        String connString = "https://6a6a9980ce:a7f4f959f657c2b5c1ec@kafka-couse-1nrd3v2f.us-east-1.bonsaisearch.net";
+        String connString = "https:/<your url>.us-east-1.bonsaisearch.net";
 
         // we build a URI from the connection string
         RestHighLevelClient restHighLevelClient;
